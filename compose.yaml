@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.4
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MYSQL_DATABASE=honodb
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mypass
+      - MYSQL_ROOT_PASSWORD=rpass
+      - TZ=Asia/Tokyo
+    ports:
+      - 13306:3306
+
+volumes:
+  db-store:
