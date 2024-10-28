@@ -11,7 +11,8 @@
     "@opentelemetry/exporter-trace-otlp-proto": "^0.54.0",
     "@opentelemetry/resources": "^1.27.0",
     "@opentelemetry/sdk-trace-node": "^1.27.0",
-    "hono": "^4.6.7"
+    "hono": "^4.6.7",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
