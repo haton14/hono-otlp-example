@@ -2,15 +2,20 @@
   "name": "hono-otlp-example",
   "type": "module",
   "scripts": {
-    "dev": "OTEL_LOG_LEVEL=DEBUG tsx watch src/index.ts",
+    "dev": "tsx watch --import ./src/instrumentation.ts src/index.ts",
+    "dev.debug": "OTEL_LOG_LEVEL=DEBUG tsx watch --import ./src/instrumentation.ts src/index.ts",
     "lint": "npx @biomejs/biome lint --write ./src",
     "format": "npx @biomejs/biome format --write ./src"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.2",
+    "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.54.0",
+    "@opentelemetry/instrumentation": "^0.54.0",
+    "@opentelemetry/instrumentation-mysql2": "^0.42.0",
     "@opentelemetry/resources": "^1.27.0",
     "@opentelemetry/sdk-trace-node": "^1.27.0",
+    "@opentelemetry/semantic-conventions": "^1.27.0",
     "hono": "^4.6.7",
     "mysql2": "^3.11.3"
   },
